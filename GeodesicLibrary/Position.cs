@@ -6,7 +6,6 @@
 // http://www.movable-type.co.uk/scripts/latlong.html
 //-----------------------------------------------------------------------
 
-
 using System;
 using UnitsNet;
 using UnitsNet.Units;
