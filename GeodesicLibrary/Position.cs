@@ -63,8 +63,8 @@ namespace GeodesicLibrary
 		/// <returns>The distance, in the units specified by the unit parameter</returns>
 		public double DistanceTo(Position toPosition, LengthUnit unit = LengthUnit.Kilometer)
 		{
-			var lat1 = this._latitude.Radians; var lat2 = toPosition._latitude.Radians;
-			var lon1 = this._longitude.Radians; var lon2 = toPosition._longitude.Radians;
+			var lat1 = _latitude.Radians; var lat2 = toPosition._latitude.Radians;
+			var lon1 = _longitude.Radians; var lon2 = toPosition._longitude.Radians;
 			var R = _radius.As(unit);
 
 			var dLat = lat2 - lat1;
@@ -87,8 +87,8 @@ namespace GeodesicLibrary
 		/// <returns>Initial bearing, in degrees clockwise from North</returns>        
 		public double InitialBearing(Position toPosition)
 		{
-			var lat1 = this._latitude.Radians; var lat2 = toPosition._latitude.Radians;
-			var dLon = (toPosition._longitude - this._longitude).Radians;
+			var lat1 = _latitude.Radians; var lat2 = toPosition._latitude.Radians;
+			var dLon = (toPosition._longitude - _longitude).Radians;
 
 			var y = Math.Sin(dLon) * Math.Cos(lat2);
 			var x = Math.Cos(lat1) * Math.Sin(lat2) -
@@ -107,8 +107,8 @@ namespace GeodesicLibrary
 		public double FinalBearing(Position toPosition)
 		{
 			// get initial bearing from supplied point back to this point...
-			var lat1 = toPosition._latitude.Radians; var lat2 = this._latitude.Radians;
-			var dLon = (this._longitude - toPosition._longitude).Radians;
+			var lat1 = toPosition._latitude.Radians; var lat2 = _latitude.Radians;
+			var dLon = (_longitude - toPosition._longitude).Radians;
 
 			var y = Math.Sin(dLon) * Math.Cos(lat2);
 			var x = Math.Cos(lat1) * Math.Sin(lat2) -
@@ -127,9 +127,9 @@ namespace GeodesicLibrary
 		/// <returns>Midpoint between this Position and the supplied Position</returns>
 		public Position MidpointTo(Position toPosition)
 		{
-			var lat1 = this._latitude.Radians; var lon1 = this._longitude.Radians;
+			var lat1 = _latitude.Radians; var lon1 = _longitude.Radians;
 			var lat2 = toPosition._latitude.Radians;
-			var dLon = (toPosition._longitude - this._longitude).Radians;
+			var dLon = (toPosition._longitude - _longitude).Radians;
 
 			var Bx = Math.Cos(lat2) * Math.Cos(dLon);
 			var By = Math.Cos(lat2) * Math.Sin(dLon);
@@ -156,9 +156,9 @@ namespace GeodesicLibrary
 			Length distance = Length.From(dist, unit);
 
 			// Convert distance to angular distance in radians
-			double angularDistance = distance.As(unit) / this._radius.As(unit);
+			double angularDistance = distance.As(unit) / _radius.As(unit);
 
-			var lat1 = this._latitude.Radians; var lon1 = this._longitude.Radians;
+			var lat1 = _latitude.Radians; var lon1 = _longitude.Radians;
 
 			Angle lat2 = Angle.FromRadians(Math.Asin(Math.Sin(lat1) * Math.Cos(angularDistance) +
 				Math.Cos(lat1) * Math.Sin(angularDistance) * Math.Cos(bearing.Radians)));
@@ -185,7 +185,7 @@ namespace GeodesicLibrary
 			Angle bearing1 = Angle.FromDegrees(firstBearing);
 			Angle bearing2 = Angle.FromDegrees(secondBearing);
 
-			double lat1 = this._latitude.Radians; double lon1 = this._longitude.Radians;
+			double lat1 = _latitude.Radians; double lon1 = _longitude.Radians;
 			double lat2 = secondPoint._latitude.Radians; double lon2 = secondPoint._longitude.Radians;
 			double dLat = lat2 - lat1; double dLon = lon2 - lon1;
 
@@ -252,10 +252,10 @@ namespace GeodesicLibrary
 		/// <returns>The distance in the units specified.</returns>
 		public double RhumbDistanceTo(Position toPosition, LengthUnit unit = LengthUnit.Kilometer)
 		{
-			double lat1 = this._latitude.Radians; var lat2 = toPosition._latitude.Radians;
+			double lat1 = _latitude.Radians; var lat2 = toPosition._latitude.Radians;
 			double R = _radius.As(unit);
-			double dLat = (toPosition._latitude - this._latitude).Radians;
-			double dLon = (toPosition._longitude - this._longitude).Radians;
+			double dLat = (toPosition._latitude - _latitude).Radians;
+			double dLon = (toPosition._longitude - _longitude).Radians;
 
 			double dPhi = Math.Log(Math.Tan(lat2 / 2 + Math.PI / 4) / Math.Tan(lat1 / 2 + Math.PI / 4));
 			double q = (!double.IsInfinity(dLat / dPhi)) ? dLat / dPhi : Math.Cos(lat1);  // E-W line gives dPhi=0
@@ -278,8 +278,8 @@ namespace GeodesicLibrary
 		/// <returns>Bearing in degrees from North.</returns>
 		public double RhumbBearingTo(Position toPosition)
 		{
-			double lat1 = this._latitude.Radians; double lat2 = toPosition._latitude.Radians;
-			double dLon = (toPosition._longitude - this._longitude).Radians;
+			double lat1 = _latitude.Radians; double lat2 = toPosition._latitude.Radians;
+			double dLon = (toPosition._longitude - _longitude).Radians;
 
 			double dPhi = Math.Log(Math.Tan(lat2 / 2 + Math.PI / 4) / Math.Tan(lat1 / 2 + Math.PI / 4));
 			if (Math.Abs(dLon) > Math.PI) dLon = dLon > 0 ? -(2 * Math.PI - dLon) : (2 * Math.PI + dLon);
@@ -301,7 +301,7 @@ namespace GeodesicLibrary
 			double R = _radius.As(unit);
 			double d = distance / R; // Angular distance covered on the Earth's surface.
 
-			double lat1 = this._latitude.Radians; double lon1 = this._longitude.Radians;
+			double lat1 = _latitude.Radians; double lon1 = _longitude.Radians;
 			Angle brng = Angle.FromDegrees(bearing);
 
 			var dLat = d * Math.Cos(brng.Radians);
@@ -334,8 +334,8 @@ namespace GeodesicLibrary
 		/// <returns>Midpoint between this Position and the supplied position</returns>
 		public Position RhumbMidpointTo(Position toPosition)
 		{
-			double lat1 = this._latitude.Radians; double lat2 = toPosition._latitude.Radians;
-			double lon1 = this._longitude.Radians; double lon2 = toPosition._longitude.Radians;
+			double lat1 = _latitude.Radians; double lat2 = toPosition._latitude.Radians;
+			double lon1 = _longitude.Radians; double lon2 = toPosition._longitude.Radians;
 
 			if (Math.Abs(lon2 - lon1) > Math.PI)
 				lon1 += 2 * Math.PI; // crossing anti-meridian
