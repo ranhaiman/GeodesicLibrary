@@ -8,28 +8,16 @@ namespace GeodesicLibraryTests
 	[TestClass]
 	public class PositionTests
 	{
-		public PositionTests()
-		{
-			//
-			// TODO: Add constructor logic here
-			//
-		}
-
-		private double delta = 0.9;
-
-		private TestContext _testContextInstance;
+		private readonly double _delta = 0.9;
 
 		/// <summary>
 		///Gets or sets the test context which provides
 		///information about and functionality for the current test run.
 		///</summary>
-		public TestContext TestContext
-		{
-			get => _testContextInstance;
-			set => _testContextInstance = value;
-		}
+		public TestContext? TestContext { get; set; }
 
 		#region Additional test attributes
+
 		//
 		// You can use the following additional attributes as you write your tests:
 		//
@@ -49,6 +37,7 @@ namespace GeodesicLibraryTests
 		// [TestCleanup()]
 		// public void MyTestCleanup() { }
 		//
+
 		#endregion
 
 		[TestMethod]
@@ -63,7 +52,7 @@ namespace GeodesicLibraryTests
 
 
 
-			Assert.AreEqual(expectedValue, testValue, delta);
+			Assert.AreEqual(expectedValue, testValue, _delta);
 
 		}
 
@@ -77,7 +66,7 @@ namespace GeodesicLibraryTests
 
 			double testValue = fromPosition.InitialBearing(toPosition);
 
-			Assert.AreEqual(expectedValue, testValue, delta);
+			Assert.AreEqual(expectedValue, testValue, _delta);
 
 		}
 
@@ -92,7 +81,7 @@ namespace GeodesicLibraryTests
 			double testValue = fromPosition.FinalBearing(toPosition);
 
 
-			Assert.AreEqual(expectedValue, testValue, delta);
+			Assert.AreEqual(expectedValue, testValue, _delta);
 
 		}
 
@@ -107,8 +96,8 @@ namespace GeodesicLibraryTests
 
 			Position testValue = fromPosition.MidpointTo(toPosition);
 
-			Assert.AreEqual(expectedLat, testValue.Latitude, delta);
-			Assert.AreEqual(expectedLon, testValue.Longitude, delta);
+			Assert.AreEqual(expectedLat, testValue.Latitude, _delta);
+			Assert.AreEqual(expectedLon, testValue.Longitude, _delta);
 		}
 
 		[TestMethod]
@@ -123,8 +112,8 @@ namespace GeodesicLibraryTests
 
 			Position testValue = fromPosition.Destination(bearing, distance);
 
-			Assert.AreEqual(expectedLat, testValue.Latitude, delta);
-			Assert.AreEqual(expectedLon, testValue.Longitude, delta);
+			Assert.AreEqual(expectedLat, testValue.Latitude, _delta);
+			Assert.AreEqual(expectedLon, testValue.Longitude, _delta);
 		}
 
 		[TestMethod]
@@ -140,8 +129,8 @@ namespace GeodesicLibraryTests
 
 			Position testValue = firstPosition.Intersection(firstBearing, secondPosition, secondBearing);
 
-			Assert.AreEqual(expectedLat, testValue.Latitude, delta);
-			Assert.AreEqual(expectedLon, testValue.Longitude, delta);
+			Assert.AreEqual(expectedLat, testValue.Latitude, _delta);
+			Assert.AreEqual(expectedLon, testValue.Longitude, _delta);
 		}
 
 		[TestMethod]
@@ -154,7 +143,7 @@ namespace GeodesicLibraryTests
 
 			double testValue = fromPosition.RhumbDistanceTo(toPosition);
 
-			Assert.AreEqual(expectedValue, testValue, delta);
+			Assert.AreEqual(expectedValue, testValue, _delta);
 		}
 
 		[TestMethod]
@@ -167,7 +156,7 @@ namespace GeodesicLibraryTests
 
 			double testValue = fromPosition.RhumbBearingTo(toPosition);
 
-			Assert.AreEqual(expectedValue, testValue, delta);
+			Assert.AreEqual(expectedValue, testValue, _delta);
 		}
 
 		[TestMethod]
@@ -182,8 +171,8 @@ namespace GeodesicLibraryTests
 
 			Position testValue = fromPosition.Destination(bearing, distance);
 
-			Assert.AreEqual(expectedLat, testValue.Latitude, delta);
-			Assert.AreEqual(expectedLon, testValue.Longitude, delta);
+			Assert.AreEqual(expectedLat, testValue.Latitude, _delta);
+			Assert.AreEqual(expectedLon, testValue.Longitude, _delta);
 		}
 
 		[TestMethod]
@@ -197,8 +186,8 @@ namespace GeodesicLibraryTests
 
 			Position testValue = fromPosition.RhumbMidpointTo(toPosition);
 
-			Assert.AreEqual(expectedLat, testValue.Latitude, delta);
-			Assert.AreEqual(expectedLon, testValue.Longitude, delta);
+			Assert.AreEqual(expectedLat, testValue.Latitude, _delta);
+			Assert.AreEqual(expectedLon, testValue.Longitude, _delta);
 		}
 	}
 }

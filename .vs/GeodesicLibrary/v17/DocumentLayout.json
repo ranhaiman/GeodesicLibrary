@@ -68,9 +68,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "GeodesicLibraryTests",
-              "DocumentMoniker": "C:\\Users\\hr250051\\Source\\Repos\\GeodesicLibrary\\TestProject1\\GeodesicLibraryTests.csproj",
+              "DocumentMoniker": "C:\\Users\\hr250051\\source\\repos\\GeodesicLibrary\\TestProject1\\GeodesicLibraryTests.csproj",
               "RelativeDocumentMoniker": "TestProject1\\GeodesicLibraryTests.csproj",
-              "ToolTip": "C:\\Users\\hr250051\\Source\\Repos\\GeodesicLibrary\\TestProject1\\GeodesicLibraryTests.csproj",
+              "ToolTip": "C:\\Users\\hr250051\\source\\repos\\GeodesicLibrary\\TestProject1\\GeodesicLibraryTests.csproj",
               "RelativeToolTip": "TestProject1\\GeodesicLibraryTests.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-05-12T15:22:26.284Z"
@@ -83,7 +83,7 @@
               "RelativeDocumentMoniker": "TestProject1\\PositionTests.cs",
               "ToolTip": "C:\\Users\\hr250051\\source\\repos\\GeodesicLibrary\\TestProject1\\PositionTests.cs",
               "RelativeToolTip": "TestProject1\\PositionTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAADwv8AAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T15:20:05.109Z",
               "EditorCaption": ""
@@ -104,9 +104,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "GeodesicLibrary",
-              "DocumentMoniker": "C:\\Users\\hr250051\\Source\\Repos\\GeodesicLibrary\\GeodesicLibrary\\GeodesicLibrary.csproj",
+              "DocumentMoniker": "C:\\Users\\hr250051\\source\\repos\\GeodesicLibrary\\GeodesicLibrary\\GeodesicLibrary.csproj",
               "RelativeDocumentMoniker": "GeodesicLibrary\\GeodesicLibrary.csproj",
-              "ToolTip": "C:\\Users\\hr250051\\Source\\Repos\\GeodesicLibrary\\GeodesicLibrary\\GeodesicLibrary.csproj",
+              "ToolTip": "C:\\Users\\hr250051\\source\\repos\\GeodesicLibrary\\GeodesicLibrary\\GeodesicLibrary.csproj",
               "RelativeToolTip": "GeodesicLibrary\\GeodesicLibrary.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-05-12T15:12:48.093Z"
@@ -119,10 +119,9 @@
               "RelativeDocumentMoniker": "GeodesicLibrary\\Position.cs",
               "ToolTip": "C:\\Users\\hr250051\\source\\repos\\GeodesicLibrary\\GeodesicLibrary\\Position.cs",
               "RelativeToolTip": "GeodesicLibrary\\Position.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAiwHgAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T20:19:15.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T20:19:15.953Z"
             }
           ]
         }
